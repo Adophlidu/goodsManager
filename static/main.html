@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品信息管理系统</title>
+    <link type="text/css" href="/css/main.css" rel="stylesheet">
+    <script src="/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>商品信息管理</h3>
+        <input type="button" id="add" value="添加商品">
+        <hr>
+        <table>
+            <caption>商品信息列表</caption>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>商品名称</th>
+                    <th>商品单价</th>
+                    <th>商品库存</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>衣服</td>
+                    <td>245</td>
+                    <td>500</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>鞋子</td>
+                    <td>451</td>
+                    <td>600</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>帽子</td>
+                    <td>78</td>
+                    <td>1022</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="wrap" class="wrap" style="display: none;">
+        <div class="addGoods">
+            <form id="addForm" method="GET" action="http://localhost:8080/addGoods">
+                <label>
+                    商品名称:
+                    <input type="text" required name="goodsName">
+                </label><br>
+                <label>
+                    商品单价:
+                    <input type="text" required name="goodsPrice">
+                </label><br>
+                <label>
+                    商品库存:
+                    <input type="number" required max="2000" min="100" name="goodsCount">
+                </label><br>
+                <input type="submit">
+                <input id="cancel" type="button" value="取消">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        $('#add').on('click', () => {
+            $('#wrap').css({
+                display: 'block'
+            })
+        })
+        $('#cancel').on('click', () => {
+            $('#wrap').css({
+                display: 'none'
+            })
+        })
+    })
+</script>
+</html>
